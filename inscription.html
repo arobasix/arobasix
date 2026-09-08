@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription — Atelier Road to Geneva | AROBasix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#132a4a;--paper:#f7f5ef;--mist:#e2e9ef;--brass:#a1793d;--brass-deep:#7e5f2e;--slate:#5b6b7c;--line:#c9d2db;--max-w:760px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--brass-deep)}
+    .wrap{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+    header.hero{padding:42px 0 48px;border-bottom:1px solid var(--line)}
+    .back{display:inline-flex;align-items:center;gap:8px;margin-bottom:42px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-decoration:none;color:var(--brass-deep)}
+    .back:hover{text-decoration:underline}
+    .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-deep);margin:0 0 18px}
+    .eyebrow::before{content:"◆ "}
+    h1{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(32px,6vw,48px);line-height:1.1;margin:0 0 16px;letter-spacing:-.015em}
+    .subtitle{font-size:18px;color:var(--slate);max-width:56ch;margin:0}
+    section.block{padding:46px 0;border-bottom:1px solid var(--line)}
+    h2{font-family:'Newsreader',serif;font-weight:500;font-style:italic;font-size:26px;line-height:1.15;margin:0 0 18px;color:var(--ink)}
+    p{margin:0 0 16px;max-width:64ch}
+    .details{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px;padding-top:22px;border-top:1px solid var(--line)}
+    .detail strong{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:4px}
+    .detail span{color:var(--slate);font-size:14px}
+    .notice{background:var(--mist);border-left:4px solid var(--brass);padding:24px 24px 20px;margin-top:26px}
+    .notice strong{display:block;margin-bottom:7px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--brass-deep)}
+    .notice p{margin:0;color:var(--ink)}
+    .form-panel{background:#fff;border:1px solid var(--line);padding:28px 24px 26px}
+    .form-intro{color:var(--slate);font-size:14.5px;margin-bottom:24px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field.full{grid-column:1/-1}
+    label{font-size:14px;font-weight:600}
+    .required{color:var(--brass-deep)}
+    input,select,textarea{width:100%;border:1px solid var(--line);border-radius:2px;background:var(--paper);color:var(--ink);font:inherit;padding:11px 12px}
+    textarea{min-height:112px;resize:vertical}
+    input:focus,select:focus,textarea:focus{outline:2px solid var(--brass);outline-offset:1px}
+    .helper{color:var(--slate);font-size:12.5px}
+    .submit-row{display:flex;align-items:center;gap:18px;margin-top:24px}
+    button{border:0;border-radius:2px;background:var(--ink);color:var(--paper);font:500 14.5px 'IBM Plex Sans',sans-serif;padding:12px 20px;cursor:pointer}
+    button:hover{background:var(--brass-deep)}
+    .mail-note{color:var(--slate);font-size:12.5px;margin:0}
+    .success{display:none;margin-top:18px;padding:14px 16px;background:#edf3ec;border-left:3px solid #5f805d;color:#315331;font-size:14px}
+    footer{padding:32px 0 56px;font-size:13px;color:var(--slate)}
+    footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    @media(max-width:600px){.details,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.submit-row{align-items:flex-start;flex-direction:column}.mail-note{max-width:36ch}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <a class="back" href="atelier-geneva-ai-summit.html">← Retour à la présentation de l'atelier</a>
+      <p class="eyebrow">Road to Geneva — pré-événement</p>
+      <h1>Inscription à l'atelier</h1>
+      <p class="subtitle">Concilier prospérité partagée et confiance dans l'IA</p>
+      <div class="details">
+        <div class="detail"><strong>Date</strong><span>Mercredi 10 février 2027</span></div>
+        <div class="detail"><strong>Horaire</strong><span>14h00 – 15h00 (CET)</span></div>
+        <div class="detail"><strong>Format</strong><span>Visioconférence Zoom</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="block">
+      <div class="wrap">
+        <h2>Votre participation</h2>
+        <p>Merci de manifester votre intérêt pour cet échange en ligne consacré aux deux priorités du Geneva AI Summit : la prospérité partagée et la confiance dans l'IA.</p>
+        <div class="notice" role="note">
+          <strong>À retenir</strong>
+          <p>Le lien Zoom sera envoyé par email entre <strong>une semaine et trois jours avant</strong> le début de la visioconférence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="inscription">
+      <div class="wrap">
+        <h2>Demande d'inscription</h2>
+        <div class="form-panel">
+          <p class="form-intro">Indiquez vos coordonnées pour transmettre votre demande à l'organisateur. Les champs marqués d'un <span class="required">*</span> sont obligatoires.</p>
+          <form id="registration-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Nom et prénom <span class="required">*</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email">Adresse email <span class="required">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="organization">Organisation / fonction</label>
+                <input id="organization" name="organization" type="text" autocomplete="organization">
+              </div>
+              <div class="field">
+                <label for="language">Langue souhaitée</label>
+                <select id="language" name="language">
+                  <option>Français</option>
+                  <option>English</option>
+                  <option>Français / English</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="message">Message complémentaire</label>
+                <textarea id="message" name="message" placeholder="Une question ou une précision à transmettre ?"></textarea>
+                <span class="helper">Un message court suffit, ce champ est facultatif.</span>
+              </div>
+            </div>
+            <div class="submit-row">
+              <button type="submit">Envoyer ma demande</button>
+              <p class="mail-note">Votre logiciel de messagerie s'ouvrira avec les informations préparées.</p>
+            </div>
+            <div class="success" id="success" role="status">Votre demande est prête à être envoyée par email.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>@X AROBASIX — Chens sur léman, Haute-Savoie</span>
+      <span>Pré-événement Road to Geneva · Geneva AI Summit 2027</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('registration-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const body = [
+        'Demande d'inscription — Atelier Road to Geneva',
+        '',
+        'Nom et prénom : ' + data.get('name'),
+        'Adresse email : ' + data.get('email'),
+        'Organisation / fonction : ' + (data.get('organization') || 'Non renseignée'),
+        'Langue souhaitée : ' + data.get('language'),
+        '',
+        'Message complémentaire :',
+        data.get('message') || 'Aucun message complémentaire.'
+      ].join('
+');
+      document.getElementById('success').style.display = 'block';
+      window.location.href = 'mailto:dupuy.t@wanadoo.fr?subject=' + encodeURIComponent('Inscription — Atelier Road to Geneva') + '&body=' + encodeURIComponent(body);
+    });
+  </script>
+</body>
+</html>
