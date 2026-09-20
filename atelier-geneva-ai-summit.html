@@ -32,12 +32,14 @@
   a{color:var(--brass-deep);}
   .wrap{max-width:var(--max-w); margin:0 auto; padding:0 24px;}
 
+
   .event-logo{
     display:block;
     width:min(280px, 78vw);
     height:auto;
     margin:0 0 30px;
   }
+
 
   /* ---------- Header ---------- */
   header.hero{
@@ -106,6 +108,7 @@
   .cta:hover{background:var(--brass-deep);}
   .cta svg{width:14px; height:14px;}
 
+
   /* ---------- Signature diagram section ---------- */
   section.diagram{
     padding:56px 0 48px;
@@ -122,6 +125,7 @@
   }
   svg.axes text{font-family:'IBM Plex Sans', sans-serif;}
 
+
   /* ---------- Content sections ---------- */
   section.block{padding:48px 0; border-bottom:1px solid var(--line);}
   section.block:last-of-type{border-bottom:none;}
@@ -135,6 +139,7 @@
   }
   p{margin:0 0 16px; max-width:64ch;}
   .lede{font-size:17px; color:var(--ink);}
+
 
   ol.programme{list-style:none; margin:0; padding:0;}
   ol.programme li{
@@ -154,6 +159,7 @@
   .prog-title{font-weight:600; margin-bottom:4px;}
   .prog-desc{font-size:14.5px; color:var(--slate); margin:0;}
 
+
   ul.resources{list-style:none; margin:0; padding:0;}
   ul.resources li{
     padding:14px 0;
@@ -167,11 +173,13 @@
   ul.resources a{font-weight:500; text-decoration:none;}
   ul.resources a:hover{text-decoration:underline;}
   .res-tag{
+  ul.resources li.reading-note{display:block; padding:0 0 14px; border-top:none; font-size:12.5px; line-height:1.45; color:var(--slate);}
     font-family:'IBM Plex Mono', monospace;
     font-size:11.5px;
     color:var(--slate);
     white-space:nowrap;
   }
+
 
   .register-block{
     background:var(--ink);
@@ -183,12 +191,14 @@
   .register-block .cta{margin-left:0; background:var(--brass); color:var(--ink) !important;}
   .register-block .cta:hover{background:#c99a52;}
 
+
   footer{
     padding:32px 0 56px;
     font-size:13px;
     color:var(--slate);
   }
   footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
 
   @media (max-width:560px){
     .meta-row{flex-direction:column; align-items:flex-start;}
@@ -198,6 +208,7 @@
 </style>
 </head>
 <body>
+
 
 <header class="hero">
   <div class="wrap">
@@ -217,22 +228,27 @@
   </div>
 </header>
 
+
 <section class="diagram">
   <div class="wrap">
     <svg class="axes" viewBox="0 0 760 260" width="100%" role="img" aria-labelledby="diagTitle diagDesc">
       <title id="diagTitle">Les deux axes du Sommet convergent vers un terrain commun</title>
       <desc id="diagDesc">Deux courbes partant des coins inférieurs — prospérité partagée à gauche, confiance et sûreté à droite — se rejoignent au centre en un point de terrain commun.</desc>
 
+
       <!-- baseline -->
       <line x1="40" y1="220" x2="720" y2="220" stroke="#c9d2db" stroke-width="1"/>
+
 
       <!-- left curve: prospérité -->
       <path d="M 60 210 C 220 210, 300 120, 380 100" fill="none" stroke="#132a4a" stroke-width="2.5"/>
       <!-- right curve: confiance -->
       <path d="M 700 210 C 540 210, 460 120, 380 100" fill="none" stroke="#a1793d" stroke-width="2.5"/>
 
+
       <circle cx="380" cy="100" r="6" fill="#132a4a"/>
       <circle cx="380" cy="100" r="14" fill="none" stroke="#a1793d" stroke-width="1.4" stroke-dasharray="3 4"/>
+
 
       <text x="60" y="238" font-size="13" fill="#5b6b7c">Prospérité partagée</text>
       <text x="620" y="238" font-size="13" fill="#5b6b7c" text-anchor="end">Confiance &amp; sûreté</text>
@@ -242,6 +258,7 @@
   </div>
 </section>
 
+
 <section class="block">
   <div class="wrap">
     <h2>Pourquoi cet atelier</h2>
@@ -249,6 +266,7 @@
     <p>Plutôt que de partir d'un consensus supposé acquis, l'atelier réunit des points de vue volontairement variés et les met en discussion directe, pour tenter de dégager un dénominateur commun sur les deux axes du Sommet — la prospérité pour tous, et la confiance dans l'usage de l'IA.</p>
   </div>
 </section>
+
 
 <section class="block">
   <div class="wrap">
@@ -279,16 +297,19 @@
   </div>
 </section>
 
+
 <section class="block">
   <div class="wrap">
     <h2>Textes de référence</h2>
     <p>À lire avant l'atelier, sans inscription préalable.</p>
     <ul class="resources">
       <li><a href="https://arobasix2.blogspot.com/" target="_blank" rel="noopener">Blog arobasix — réflexions préparatoires</a><span class="res-tag">Lecture libre</span></li>
+      <li class="reading-note"><strong><em>Attention ! A ne pas vous égarer dans les méandres des labyrinthes du blog.<br>Afin de préparer l’atelier rester concentré sur les articles et les liens en rapport avec le sujet «Concilier prospérité partagée et confiance dans l'IA&nbsp;».</em></strong></li>
       <li><a href="#" target="_blank" rel="noopener">Note d'argumentaire complète (PDF)</a><span class="res-tag">À venir</span></li>
     </ul>
   </div>
 </section>
+
 
 <section class="register-block" id="inscription">
   <div class="wrap">
@@ -300,12 +321,14 @@
   </div>
 </section>
 
+
 <footer>
   <div class="wrap">
     <span>arobasix — Passy, Haute-Savoie</span>
     <span>Pré-événement Road to Geneva · Geneva AI Summit 2027</span>
   </div>
 </footer>
+
 
 </body>
 </html>
