@@ -690,7 +690,7 @@
     line-height: 1.7;
   }
   .footer-copy strong { color: var(--gris-clair); }
-  .footer-nav { display: flex; gap: 20px; }
+  .footer-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
   .footer-nav a {
     font-family: 'DM Mono', monospace;
     font-size: 11px;
@@ -699,6 +699,25 @@
     transition: color 0.2s;
   }
   .footer-nav a:hover { color: var(--blanc); }
+  .footer-event {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .footer-event-logo {
+    display: block;
+    width: 92px;
+    height: 40px;
+    object-fit: contain;
+  }
+  .footer-event-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gris);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .footer-event-link:hover { color: var(--blanc); }
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
@@ -1259,7 +1278,10 @@
       <a href="https://arobasix2.blogspot.com" target="_blank">AROBASIX 2 (2026→)</a>
       <a href="http://projets-profits.blogspot.com" target="_blank">Projets & Profits</a>
       <a href="https://terreur-rouge.blogspot.com/" target="_blank" rel="noreferrer">Terreur Rouge</a>
-      <a href="atelier-geneva-ai-summit.html">Atelier Geneva AI Summit</a>
+      <span class="footer-event">
+        <img class="footer-event-logo" src="road-to-geneva-logo-light.gif" alt="Road to Geneva — Geneva AI Summit, 21–22 June 2027">
+        <a class="footer-event-link" href="atelier-geneva-ai-summit.html">Atelier Geneva AI Summit <span aria-hidden="true">↗</span></a>
+      </span>
       <a href="etude-ia-dessin/index.html">Étude IA — Arts Plastiques - Dessin TD</a>
     </nav>
   </div>
