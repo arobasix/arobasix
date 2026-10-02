@@ -84,7 +84,7 @@
         <h2>Demande d'inscription</h2>
         <div class="form-panel">
           <p class="form-intro">Indiquez vos coordonnées pour transmettre votre demande à l'organisateur. Les champs marqués d'un <span class="required">*</span> sont obligatoires.</p>
-          <form id="registration-form" action="https://formspree.io/f/mgavjrqw" method="POST">
+          <form id="form-inscription" id="registration-form">
             <input type="hidden" name="_subject" value="Demande d'inscription — Atelier Road to Geneva">
             <input type="hidden" name="_next" value="https://arobasix.github.io/arobasix/inscription.html?sent=1">
             <div class="form-grid">
@@ -145,5 +145,23 @@
       window.history.replaceState({}, document.title, window.location.pathname);
     }
   </script>
+<script>
+document.getElementById('form-inscription').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var destinataire = 'dupuy.t@wanadoo.fr';
+  var sujet = "Demande d'inscription - Geneva AI Summit";
+  var lignes = [];
+  new FormData(this).forEach(function (valeur, nom) {
+    if (nom.charAt(0) !== '_' && typeof valeur === 'string' && valeur.trim() !== '') {
+      var champ = this.elements[nom];
+      var lib = (champ && champ.labels && champ.labels[0]) ? champ.labels[0].textContent.trim() : nom;
+      lignes.push(lib + ' : ' + valeur.trim());
+    }
+  }, this);
+  window.location.href = 'mailto:' + destinataire +
+    '?subject=' + encodeURIComponent(sujet) +
+    '&body=' + encodeURIComponent(lignes.join('\n'));
+});
+</script>
 </body>
 </html>
