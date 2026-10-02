@@ -46,7 +46,9 @@
     button{border:0;border-radius:2px;background:var(--ink);color:var(--paper);font:500 14.5px 'IBM Plex Sans',sans-serif;padding:12px 20px;cursor:pointer}
     button:hover{background:var(--brass-deep)}
     .mail-note{color:var(--slate);font-size:12.5px;margin:0}
-    .success{display:none;margin-top:18px;padding:14px 16px;background:#edf3ec;border-left:3px solid #5f805d;color:#315331;font-size:14px}
+    .success{display:none;margin-top:18px;padding:16px 18px;background:#edf3ec;border-left:3px solid #5f805d;color:#315331;font-size:14px}
+    .success strong{display:block;margin-bottom:4px;font-size:15px}
+    .success a{display:inline-block;margin-top:8px;font-weight:600;color:#315331}
     footer{padding:32px 0 56px;font-size:13px;color:var(--slate)}
     footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     @media(max-width:600px){.details,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.submit-row{align-items:flex-start;flex-direction:column}.mail-note{max-width:36ch}}
@@ -117,7 +119,11 @@
               <button type="submit">Envoyer ma demande</button>
               <p class="mail-note">Votre logiciel de messagerie s'ouvrira avec les informations préparées.</p>
             </div>
-            <div class="success" id="success" role="status">Votre demande est prête à être envoyée par email.</div>
+            <div class="success" id="success" role="status" aria-live="polite" tabindex="-1">
+              <strong>Merci, votre demande est bien préparée.</strong>
+              <span>Votre demande est prête. Cliquez sur le lien ci-dessous pour ouvrir votre logiciel de messagerie et finaliser l'envoi.</span>
+              <a id="mailto-fallback" href="#">Ouvrir le message dans mon logiciel de messagerie</a>
+            </div>
           </form>
         </div>
       </div>
@@ -146,8 +152,12 @@
         'Message complémentaire :',
         data.get('message') || 'Aucun message complémentaire.'
       ].join('\n');
-      document.getElementById('success').style.display = 'block';
-      window.location.href = 'mailto:xarobasix@orange.fr?subject=' + encodeURIComponent('Inscription — Atelier Road to Geneva') + '&body=' + encodeURIComponent(body);
+      const mailtoUrl = 'mailto:xarobasix@orange.fr?subject=' + encodeURIComponent('Inscription — Atelier Road to Geneva') + '&body=' + encodeURIComponent(body);
+      const success = document.getElementById('success');
+      const mailtoFallback = document.getElementById('mailto-fallback');
+      mailtoFallback.href = mailtoUrl;
+      success.style.display = 'block';
+      success.focus();
     });
   </script>
 </body>
