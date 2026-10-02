@@ -109,14 +109,13 @@
               <div class="field full">
                 <label for="message">Message complémentaire</label>
                 <textarea id="message" name="message" placeholder="Une question ou une précision à transmettre ?"></textarea>
-                <span class="helper">Un message court suffit, ce champ est facultatif.</span>
               </div>
             </div>
             <div class="submit-row">
               <button type="submit">Envoyer ma demande</button>
             </div>
             <div class="success" id="success" role="status" aria-live="polite" tabindex="-1">
-              Merci, votre inscription a bien été envoyée.
+              Votre demande a bien été prise en compte.
             </div>
           </form>
         </div>
@@ -134,12 +133,28 @@
   <script>
     document.getElementById('registration-form').addEventListener('submit', function(event) {
       event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const body = [
+        "Demande d'inscription — Atelier Road to Geneva",
+        '',
+        'Nom et prénom : ' + data.get('name'),
+        'Adresse email : ' + data.get('email'),
+        'Organisation / fonction : ' + (data.get('organization') || 'Non renseignée'),
+        'Langue souhaitée : ' + data.get('language'),
+        '',
+        'Message complémentaire :',
+        data.get('message') || 'Aucun message complémentaire.'
+      ].join('\n');
+      const mailtoUrl = 'mailto:xarobasix@orange.fr?subject=' + encodeURIComponent('Inscription — Atelier Road to Geneva') + '&body=' + encodeURIComponent(body);
       const success = document.getElementById('success');
       success.style.display = 'block';
       success.focus();
       window.setTimeout(function() {
         success.style.display = 'none';
-      }, 20000);
+      }, 5000);
+      window.setTimeout(function() {
+        window.location.href = mailtoUrl;
+      }, 250);
     });
   </script>
 </body>
