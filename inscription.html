@@ -45,13 +45,7 @@
     .submit-row{display:flex;align-items:center;gap:18px;margin-top:24px}
     button{border:0;border-radius:2px;background:var(--ink);color:var(--paper);font:500 14.5px 'IBM Plex Sans',sans-serif;padding:12px 20px;cursor:pointer}
     button:hover{background:var(--brass-deep)}
-    .mail-note{color:var(--slate);font-size:12.5px;margin:0}
     .success{display:none;margin-top:18px;padding:16px 18px;background:#edf3ec;border-left:3px solid #5f805d;color:#315331;font-size:14px}
-    .success strong{display:block;margin-bottom:4px;font-size:15px}
-    .success a{display:inline-block;margin-top:8px;font-weight:600;color:#315331}
-    .success-fallback{margin:10px 0 0;color:#315331;font-size:13px}
-    .copy-request{display:none;margin-top:10px;padding:8px 12px;background:transparent;border:1px solid #5f805d;color:#315331;font-size:13px}
-    .copy-status{display:block;margin-top:8px;font-size:12.5px}
     footer{padding:32px 0 56px;font-size:13px;color:var(--slate)}
     footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     @media(max-width:600px){.details,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.submit-row{align-items:flex-start;flex-direction:column}.mail-note{max-width:36ch}}
@@ -120,15 +114,9 @@
             </div>
             <div class="submit-row">
               <button type="submit">Envoyer ma demande</button>
-              <p class="mail-note">Si votre logiciel ne s'ouvre pas, un lien de secours sera proposé.</p>
             </div>
             <div class="success" id="success" role="status" aria-live="polite" tabindex="-1">
-              <strong>Merci, votre demande est bien préparée.</strong>
-              <span>Votre demande est prête. Cliquez sur le lien ci-dessous pour ouvrir votre logiciel de messagerie et finaliser l'envoi.</span>
-              <a id="mailto-fallback" href="#">Ouvrir le message dans mon logiciel de messagerie</a>
-              <p class="success-fallback">Si rien ne s'ouvre, envoyez la demande à <strong>xarobasix@orange.fr</strong> ou copiez son contenu :</p>
-              <button class="copy-request" id="copy-request" type="button">Copier les informations de la demande</button>
-              <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+              Merci, votre inscription a bien été envoyée.
             </div>
           </form>
         </div>
@@ -144,59 +132,14 @@
   </footer>
 
   <script>
-    let preparedRequest = '';
-    const copyRequestButton = document.getElementById('copy-request');
-    const copyStatus = document.getElementById('copy-status');
-
-    copyRequestButton.addEventListener('click', async function() {
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(preparedRequest);
-        } else {
-          const helper = document.createElement('textarea');
-          helper.value = preparedRequest;
-          helper.setAttribute('readonly', '');
-          helper.style.position = 'fixed';
-          helper.style.opacity = '0';
-          document.body.appendChild(helper);
-          helper.select();
-          const copied = document.execCommand('copy');
-          helper.remove();
-          if (!copied) throw new Error('Copie impossible');
-        }
-        copyStatus.textContent = 'Les informations ont été copiées. Collez-les dans votre logiciel de messagerie.';
-      } catch (error) {
-        copyStatus.textContent = 'La copie automatique est indisponible. Adresse destinataire : xarobasix@orange.fr';
-      }
-    });
-
     document.getElementById('registration-form').addEventListener('submit', function(event) {
       event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      const body = [
-        "Demande d'inscription — Atelier Road to Geneva",
-        '',
-        'Nom et prénom : ' + data.get('name'),
-        'Adresse email : ' + data.get('email'),
-        'Organisation / fonction : ' + (data.get('organization') || 'Non renseignée'),
-        'Langue souhaitée : ' + data.get('language'),
-        '',
-        'Message complémentaire :',
-        data.get('message') || 'Aucun message complémentaire.'
-      ].join('\n');
-      preparedRequest = [
-        'À : xarobasix@orange.fr',
-        'Objet : Inscription — Atelier Road to Geneva',
-        '',
-        body
-      ].join('\n');
-      const mailtoUrl = 'mailto:xarobasix@orange.fr?subject=' + encodeURIComponent('Inscription — Atelier Road to Geneva') + '&body=' + encodeURIComponent(body);
       const success = document.getElementById('success');
-      const mailtoFallback = document.getElementById('mailto-fallback');
-      mailtoFallback.href = mailtoUrl;
       success.style.display = 'block';
-      copyRequestButton.style.display = 'inline-block';
       success.focus();
+      window.setTimeout(function() {
+        success.style.display = 'none';
+      }, 20000);
     });
   </script>
 </body>
