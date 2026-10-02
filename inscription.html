@@ -45,9 +45,7 @@
     .submit-row{display:flex;align-items:center;gap:18px;margin-top:24px}
     button{border:0;border-radius:2px;background:var(--ink);color:var(--paper);font:500 14.5px 'IBM Plex Sans',sans-serif;padding:12px 20px;cursor:pointer}
     button:hover{background:var(--brass-deep)}
-    button:disabled{opacity:.65;cursor:wait}
     .success{display:none;margin-top:18px;padding:16px 18px;background:#edf3ec;border-left:3px solid #5f805d;color:#315331;font-size:14px}
-    .success.error{background:#f9ecea;border-left-color:#a45d58;color:#6b332e}
     footer{padding:32px 0 56px;font-size:13px;color:var(--slate)}
     footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     @media(max-width:600px){.details,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.submit-row{align-items:flex-start;flex-direction:column}.mail-note{max-width:36ch}}
@@ -87,6 +85,8 @@
         <div class="form-panel">
           <p class="form-intro">Indiquez vos coordonnées pour transmettre votre demande à l'organisateur. Les champs marqués d'un <span class="required">*</span> sont obligatoires.</p>
           <form id="registration-form" action="https://formspree.io/f/mgavjrqw" method="POST">
+            <input type="hidden" name="_subject" value="Demande d'inscription — Atelier Road to Geneva">
+            <input type="hidden" name="_next" value="https://arobasix.github.io/arobasix/inscription.html?sent=1">
             <div class="form-grid">
               <div class="field">
                 <label for="name">Nom et prénom <span class="required">*</span></label>
@@ -133,43 +133,17 @@
   </footer>
 
   <script>
-    const registrationForm = document.getElementById('registration-form');
-    const submitButton = registrationForm.querySelector('button[type="submit"]');
     const success = document.getElementById('success');
+    const submitted = new URLSearchParams(window.location.search).get('sent') === '1';
 
-    registrationForm.addEventListener('submit', async function(event) {
-      event.preventDefault();
-      submitButton.disabled = true;
-      submitButton.textContent = 'Envoi en cours…';
-      success.classList.remove('error');
-      success.style.display = 'none';
-
-      try {
-        const response = await fetch(registrationForm.action, {
-          method: 'POST',
-          body: new FormData(registrationForm),
-          headers: { Accept: 'application/json' }
-        });
-
-        if (!response.ok) throw new Error('Formspree a refusé la demande.');
-
-        success.textContent = 'Votre demande a bien été prise en compte.';
-        success.style.display = 'block';
-        success.focus();
-        registrationForm.reset();
-        window.setTimeout(function() {
-          success.style.display = 'none';
-        }, 5000);
-      } catch (error) {
-        success.textContent = 'Impossible d’envoyer la demande pour le moment. Veuillez réessayer.';
-        success.classList.add('error');
-        success.style.display = 'block';
-        success.focus();
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = 'Envoyer ma demande';
-      }
-    });
+    if (submitted) {
+      success.style.display = 'block';
+      success.focus();
+      window.setTimeout(function() {
+        success.style.display = 'none';
+      }, 5000);
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
   </script>
 </body>
 </html>
