@@ -145,8 +145,7 @@
         '',
         'Message complémentaire :',
         data.get('message') || 'Aucun message complémentaire.'
-      ].join('
-');
+      ].join('\n');
       document.getElementById('success').style.display = 'block';
       window.location.href = 'mailto:xarobasix@orange.fr?subject=' + encodeURIComponent('Inscription — Atelier Road to Geneva') + '&body=' + encodeURIComponent(body);
     });
