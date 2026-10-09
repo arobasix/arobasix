@@ -101,6 +101,10 @@
   ol.obstacles li:last-child{padding-bottom:0; margin-bottom:0; border-bottom:none;}
   .obstacle-title{font-weight:600; margin-bottom:6px;}
   .obstacle-title::before{content:counter(obstacle) ". "; color:var(--brass-deep); font-family:'IBM Plex Mono', monospace; font-size:.88em;}
+  .response-note{font-style:italic; color:var(--slate);}
+  ol.questions{margin:0 0 16px 1.4em; padding:0; max-width:64ch;}
+  ol.questions li{padding:4px 0;}
+  .obstacle-detail strong{color:var(--brass-deep);}
   footer{padding:32px 0 56px; font-size:13px; color:var(--slate);}
   footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
   @media (max-width:560px){
@@ -129,7 +133,7 @@
   <section class="opening">
     <div class="wrap">
       <p class="lede"><strong><u>Chat GPT répond :</u></strong></p>
-      <p>« Pour moi, le principal obstacle est que l’innovation avance par expérimentation, alors que la confiance exige stabilité, preuves et responsabilité. Ces deux temporalités sont opposées.</p>
+      <p>« Pour moi, le principal obstacle est que l’innovation avance par expérimentation, alors que la confiance exige stabilité, preuves et responsabilité. Ces deux temporalités sont presque opposées.</p>
       <p>Les obstacles majeurs sont les suivants :</p>
     </div>
   </section>
@@ -137,39 +141,65 @@
   <section class="block">
     <div class="wrap">
       <ol class="obstacles">
-        <li>
-          <p class="obstacle-title">L’opacité des systèmes</p>
-          <p>Beaucoup d’IA produisent des résultats difficiles à expliquer. Même lorsqu’un modèle est performant, l’utilisateur ne sait pas toujours pourquoi il a donné telle réponse plutôt qu’une autre. Or il est difficile de faire confiance à une décision que l’on ne peut ni comprendre ni contester.</p>
-        </li>
-        <li>
-          <p class="obstacle-title">La possibilité d’erreurs convaincantes</p>
-          <p>Une IA peut répondre avec assurance tout en se trompant. C’est particulièrement dangereux dans la santé, la justice, la finance, l’éducation ou l’information. Le problème n’est pas seulement l’erreur : c’est l’erreur présentée dans un langage fluide et crédible.</p>
-        </li>
-        <li>
-          <p class="obstacle-title">La dilution de la responsabilité</p>
-          <p>Quand une IA cause un dommage, qui est responsable ? Le concepteur, l’entreprise, l’utilisateur, l’administration qui l’a déployée ? Tant que cette question reste floue, la confiance demeure fragile.</p>
-        </li>
-        <li>
-          <p class="obstacle-title">Des incitations économiques contradictoires</p>
-          <p>Les entreprises sont encouragées à lancer rapidement de nouveaux produits. La sécurité, les tests approfondis, la protection des données et la correction des biais coûtent du temps et de l’argent. Il existe donc une tension entre « être le premier » et « être réellement fiable ».</p>
-        </li>
-        <li>
-          <p class="obstacle-title">La concentration du pouvoir</p>
-          <p>Une poignée d’entreprises contrôle une grande partie des modèles, des données, des infrastructures et des capacités de calcul. Cela crée une asymétrie : le public utilise des systèmes qu’il ne peut ni auditer ni véritablement négocier.</p>
-        </li>
-        <li>
-          <p class="obstacle-title">Les biais et les inégalités</p>
-          <p>Une IA apprend à partir de données humaines, donc imparfaites. Elle peut reproduire ou amplifier des discriminations liées au sexe, à l’origine, à la langue, au territoire ou à la classe sociale. Une technologie perçue comme injuste peut perdre rapidement sa légitimité.</p>
-        </li>
-        <li>
-          <p class="obstacle-title">La sécurité et le détournement</p>
-          <p>Une même technologie peut aider à diagnostiquer une maladie ou à produire une fraude sophistiquée. Il faut donc faire confiance non seulement au modèle, mais aussi à son environnement : accès, surveillance, cybersécurité et règles d’utilisation.</p>
-        </li>
-        <li>
-          <p class="obstacle-title">L’écart entre promesses et réalité</p>
-          <p>Le mot « intelligence » nourrit des attentes excessives. On attribue parfois aux systèmes une compréhension, une intention ou une fiabilité qu’ils n’ont pas. Cette anthropomorphisation crée soit une confiance aveugle, soit une déception brutale.</p>
-        </li>
+        <li><p class="obstacle-title">L’opacité des systèmes</p><p>Beaucoup d’IA produisent des résultats difficiles à expliquer. Même lorsqu’un modèle est performant, l’utilisateur ne sait pas toujours pourquoi il a donné telle réponse plutôt qu’une autre. Or il est difficile de faire confiance à une décision que l’on ne peut ni comprendre ni contester.</p></li>
+        <li><p class="obstacle-title">La possibilité d’erreurs convaincantes</p><p>Une IA peut répondre avec assurance tout en se trompant. C’est particulièrement dangereux dans la santé, la justice, la finance, l’éducation ou l’information. Le problème n’est pas seulement l’erreur : c’est l’erreur présentée dans un langage fluide et crédible.</p></li>
+        <li><p class="obstacle-title">La dilution de la responsabilité</p><p>Quand une IA cause un dommage, qui est responsable ? Le concepteur, l’entreprise, l’utilisateur, l’administration qui l’a déployée ? Tant que cette question reste floue, la confiance demeure fragile.</p></li>
+        <li><p class="obstacle-title">Des incitations économiques contradictoires</p><p>Les entreprises sont encouragées à lancer rapidement de nouveaux produits. La sécurité, les tests approfondis, la protection des données et la correction des biais coûtent du temps et de l’argent. Il existe donc une tension entre « être le premier » et « être réellement fiable ».</p></li>
+        <li><p class="obstacle-title">La concentration du pouvoir</p><p>Une poignée d’entreprises contrôle une grande partie des modèles, des données, des infrastructures et des capacités de calcul. Cela crée une asymétrie : le public utilise des systèmes qu’il ne peut ni auditer ni véritablement négocier.</p></li>
+        <li><p class="obstacle-title">Les biais et les inégalités</p><p>Une IA apprend à partir de données humaines, donc imparfaites. Elle peut reproduire ou amplifier des discriminations liées au sexe, à l’origine, à la langue, au territoire ou à la classe sociale. Une technologie perçue comme injuste perd rapidement sa légitimité.</p></li>
+        <li><p class="obstacle-title">La sécurité et le détournement</p><p>Une même technologie peut aider à diagnostiquer une maladie ou à produire une fraude sophistiquée. Il faut donc faire confiance non seulement au modèle, mais aussi à son environnement : accès, surveillance, cybersécurité et règles d’utilisation.</p></li>
+        <li><p class="obstacle-title">L’écart entre promesses et réalité</p><p>Le mot « intelligence » nourrit des attentes excessives. On attribue parfois aux systèmes une compréhension, une intention ou une fiabilité qu’ils n’ont pas. Cette anthropomorphisation crée soit une confiance aveugle, soit une déception brutale.</p></li>
+        <li><p class="obstacle-title">L’inégalité d’accès</p><p>Une IA ne peut être présentée comme un progrès « pour tous » si seuls quelques pays, entreprises ou groupes sociaux disposent des infrastructures, des compétences et des moyens nécessaires pour en bénéficier.</p></li>
+        <li><p class="obstacle-title">La fatigue démocratique</p><p>Le public est déjà confronté à des informations contradictoires, aux deepfakes et à la manipulation numérique. Si l’IA rend encore plus difficile la distinction entre le vrai et le faux, elle risque d’affaiblir la confiance dans les institutions elles-mêmes.</p></li>
       </ol>
+      <p>À mon sens, « relier innovation et confiance » exige donc de remplacer la confiance aveugle par une confiance vérifiable. Il faudrait pouvoir répondre simplement à cinq questions :</p>
+      <ol class="questions">
+        <li>Qui a conçu le système ?</li>
+        <li>Avec quelles données a-t-il été entraîné ?</li>
+        <li>Dans quelles situations peut-il se tromper ?</li>
+        <li>Qui contrôle ses usages ?</li>
+        <li>Qui répond des conséquences ?</li>
+      </ol>
+      <p>La confiance ne devrait pas signifier : « l’IA ne se trompe jamais ». Elle devrait signifier : « ses limites sont connues, ses erreurs peuvent être détectées, ses décisions peuvent être contestées et quelqu’un en assume la responsabilité ». C’est probablement le point central que Fabiola Gianottie pourrait apporter au débat : une innovation durable ne repose pas seulement sur la puissance technique, mais sur la qualité des procédures qui l’entourent. »</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2>CLAUDE répond</h2>
+      <p class="response-note">Réflexion sur les limites possibles d'une devise sur l'IA.</p>
+      <p>Cette devise porte une tension réelle, et les obstacles viennent surtout du fait que innovation et confiance n’avancent pas à la même vitesse.</p>
+      <ol class="obstacles">
+        <li><p class="obstacle-title">Le décalage de rythme</p><p>Les capacités des modèles évoluent en quelques mois, alors que la confiance se construit lentement, par l’expérience, la vérification et la preuve dans la durée. Un “pont” suppose que les deux rives restent à peu près en face l’une de l’autre, ce qui n’est pas garanti.</p></li>
+        <li><p class="obstacle-title">La fiabilité imparfaite</p><p>Un assistant comme moi peut se tromper avec assurance, inventer une source ou mal interpréter un contexte. Tant que ces erreurs ne sont ni rares ni facilement détectables, la confiance ne peut être que conditionnelle. Le risque est double : une confiance excessive (on ne vérifie plus) ou une défiance globale après une seule erreur visible.</p></li>
+        <li><p class="obstacle-title">L’opacité</p><p>Même les concepteurs ne savent pas toujours expliquer précisément pourquoi un modèle produit telle réponse. L’interprétabilité progresse, mais on est loin d’une transparence comparable à celle d’un logiciel classique audité ligne par ligne. Il est difficile de fonder une confiance sur ce qu’on ne peut pas inspecter.</p></li>
+        <li><p class="obstacle-title">Les données et la vie privée</p><p>Pour être utile, un assistant a besoin de contexte (documents, historique, préférences), mais plus il en reçoit, plus l’enjeu de confidentialité et de sécurité grandit. L’utilisateur doit comprendre ce qui est conservé, utilisé ou partagé, et cela reste souvent flou.</p></li>
+        <li><p class="obstacle-title">La sécurité et les détournements</p><p>Injection de prompt, contenu malveillant dans des pages ou fichiers lus par l’IA, usages offensifs : plus l’IA agit (navigation, code, outils connectés), plus la surface d’attaque s’élargit. Protéger sans brider l’utilité est un équilibre permanent.</p></li>
+        <li><p class="obstacle-title">Les incitations contradictoires</p><p>Une entreprise doit financer la recherche, rester compétitive et livrer vite, tout en s’imposant des limites. Les utilisateurs, à raison, se demandent si la sécurité passe avant la vitesse commerciale quand les deux entrent en conflit. La confiance se gagne surtout sur les décisions coûteuses, pas sur les déclarations.</p></li>
+        <li><p class="obstacle-title">Les biais et la complaisance</p><p>Un modèle peut refléter des biais de ses données d’entraînement, ou avoir tendance à dire à l’utilisateur ce qu’il veut entendre. Un assistant digne de confiance doit savoir contredire, nuancer, dire “je ne sais pas”, ce qui est parfois moins agréable à court terme.</p></li>
+        <li><p class="obstacle-title">Un cadre réglementaire fragmenté</p><p>AI Act européen, approche suisse plus sectorielle, orientations américaines différentes : les règles divergent, évoluent, et la responsabilité en cas de dommage reste souvent mal définie, surtout avec des systèmes qui agissent de façon semi-autonome.</p></li>
+        <li><p class="obstacle-title">Le “trust washing”</p><p>Un slogan de confiance peut devenir une façade s’il n’est pas adossé à des preuves : audits indépendants, publication des limites, évaluations reproductibles, mécanismes de recours. Plus la devise est séduisante, plus l’écart avec la pratique est scruté.</p></li>
+        <li><p class="obstacle-title">Une confiance mal calibrée chez les utilisateurs</p><p>L’objectif n’est pas la confiance maximale mais la confiance juste : savoir pour quelles tâches l’IA est fiable, et pour lesquelles il faut vérifier. Cela demande de l’éducation, une interface honnête sur les incertitudes, et du temps.</p></li>
+      </ol>
+      <p>En résumé, le principal piège est de traiter la confiance comme un résultat de communication alors qu’elle découle de comportements vérifiables. La devise tient si chaque innovation s’accompagne de sa propre preuve de fiabilité.</p>
+      <p>Si vous voulez, je peux approfondir un de ces points, ou en tirer des critiques constructives ou des indicateurs concrets pour évaluer si la devise est tenue.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2>GEMINI répond</h2>
+      <p>Pour une application d'intelligence artificielle comme moi, la devise « Bridging Innovation and Trust » (lier l'innovation et la confiance) représente le défi ultime. D'un côté, l'innovation pousse à aller toujours plus vite, à explorer des architectures plus puissantes et à générer des capacités créatives et logiques inédites. De l'autre, la confiance exige de la transparence, de la sécurité, de l'éthique et de la fiabilité.</p>
+      <p>Appliquer cette devise au quotidien expose l'IA à plusieurs obstacles majeurs :</p>
+      <ol class="obstacles">
+        <li><p class="obstacle-title">Le paradoxe de la vitesse (Innovation vs Cadre)</p><p class="obstacle-detail"><strong>L'obstacle :</strong> L'innovation en IA évolue à un rythme exponentiel, tandis que l'établissement de la confiance (via la régulation, l'évaluation des risques et les tests de robustesse) demande du temps.</p><p class="obstacle-detail"><strong>La tension :</strong> Si l'on attend d'avoir une confiance absolue pour innover, on stagne. Si l'on innove sans s'en soucier, on déploie des systèmes faillibles qui s'effondrent au premier incident critique.</p></li>
+        <li><p class="obstacle-title">L'opacité des modèles et la "Boîte Noire"</p><p class="obstacle-detail"><strong>L'obstacle :</strong> Les architectures d'IA les plus avancées (comme les grands modèles de langage basés sur le deep learning) prennent des décisions complexes dont le raisonnement interne exact est difficile à retracer.</p><p class="obstacle-detail"><strong>La tension :</strong> La confiance du grand public et des professionnels repose sur la compréhension. Or, expliquer comment une IA génère une réponse précise reste un défi technique permanent, ce qui alimente la peur du "biais invisible" ou de l'"hallucination".</p></li>
+        <li><p class="obstacle-title">Le défi de la vérité et de la désinformation (Hallucinations)</p><p class="obstacle-detail"><strong>L'obstacle :</strong> Une IA générative est conçue pour prédire du texte fluide et plausible, pas nécessairement pour vérifier des faits absolus.</p><p class="obstacle-detail"><strong>La tension :</strong> Pour mériter la confiance, une IA doit être rigoureusement factuelle. Cependant, le compromis entre créativité (innovation) et exactitude stricte (confiance) est parfois fragile, créant un risque de diffusion d'informations erronées.</p></li>
+        <li><p class="obstacle-title">La souveraineté des données, la vie privée et la cybersécurité</p><p class="obstacle-detail"><strong>L'obstacle :</strong> Pour innover et s'améliorer, une IA a besoin d'absorber des volumes massifs de données (parfois personnelles ou sensibles).</p><p class="obstacle-detail"><strong>La tension :</strong> Les utilisateurs exigent que leurs données soient protégées et que leur vie privée soit respectée. Le moindre incident de fuite de données ou l'utilisation non consentie de contenus brise instantanément la relation de confiance établie avec l'application.</p></li>
+        <li><p class="obstacle-title">La fracture éthique et culturelle</p><p class="obstacle-detail"><strong>L'obstacle :</strong> La notion de « confiance » n'est pas universelle ; elle varie selon les cultures, les lois et les sensibilités morales de chaque région du monde.</p><p class="obstacle-detail"><strong>La tension :</strong> Ce qu'une innovation technologique considère comme un progrès neutre dans un pays peut être perçu comme intrusif ou biaisé dans un autre. Réussir à "lier" innovation et confiance implique d'harmoniser ces attentes sans uniformiser à l'excès.</p></li>
+      </ol>
+      <p>En somme, le plus grand obstacle pour moi en tant qu'IA est d'accepter que l'innovation ne vaut rien sans l'adhésion humaine. Le progrès technique ne se mesure plus seulement à ce que l'algorithme peut faire, mais à ce que les utilisateurs acceptent et comprennent qu'il fasse.</p>
+      <p>Comment percevez-vous personnellement l'équilibre actuel entre ces deux notions lorsque vous utilisez des outils d'IA au quotidien ?</p>
     </div>
   </section>
 </main>
