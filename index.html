@@ -230,6 +230,30 @@
     padding: 36px;
     position: relative;
   }
+  .hero-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .hero-event-promo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .hero-event-promo:hover {
+    opacity: 0.84;
+    transform: translateY(-2px);
+  }
+  .hero-event-logo {
+    display: block;
+    width: min(100%, 360px);
+    height: auto;
+    object-fit: contain;
+  }
   .hero-featured::before {
     content: 'À LA UNE';
     position: absolute;
@@ -738,6 +762,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
   .hero-text { animation: fadeUp 0.7s ease forwards; }
+  .hero-event-promo { animation: fadeUp 0.7s 0.08s ease both; }
   .hero-featured { animation: fadeUp 0.7s 0.15s ease both; }
   .theme-card { animation: fadeUp 0.5s ease both; }
   .theme-card:nth-child(1) { animation-delay: 0.1s; }
@@ -919,15 +944,20 @@
     </div>
   </div>
 
-  <div class="hero-featured">
-    <div class="featured-category">Technologie — Août 2026</div>
-    <h2 class="featured-title">TOP500 : les 10 superordinateurs les plus puissants au monde (juin 2026)</h2>
-    <p class="featured-summary">
-      Deux fois par an, le classement TOP500 recense les superordinateurs les plus puissants de la planète, 
-      mesurés par leur performance réelle (Rmax) sur le test LINPACK. L'édition de juin 2026 marque un tournant : 
-      pour la première fois, une machine chinoise, le LineShine, prend la tête du classement devant l'américain El Capitan.
-    </p>
-    <a href="#" class="btn-read" onclick="openModal('top500')">Lire l'article →</a>
+  <div class="hero-sidebar">
+    <a class="hero-event-promo" href="atelier-geneva-ai-summit.html" aria-label="Atelier Geneva AI Summit">
+      <img class="hero-event-logo" src="road-to-geneva-logo-light.gif" alt="Road to Geneva — Geneva AI Summit, 21–22 June 2027">
+    </a>
+    <div class="hero-featured">
+      <div class="featured-category">Technologie — Août 2026</div>
+      <h2 class="featured-title">TOP500 : les 10 superordinateurs les plus puissants au monde (juin 2026)</h2>
+      <p class="featured-summary">
+        Deux fois par an, le classement TOP500 recense les superordinateurs les plus puissants de la planète,
+        mesurés par leur performance réelle (Rmax) sur le test LINPACK. L'édition de juin 2026 marque un tournant :
+        pour la première fois, une machine chinoise, le LineShine, prend la tête du classement devant l'américain El Capitan.
+      </p>
+      <a href="#" class="btn-read" onclick="openModal('top500')">Lire l'article →</a>
+    </div>
   </div>
 </section>
 
