@@ -237,12 +237,22 @@
   }
   .hero-event-promo {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 150px;
-    padding: 8px 20px;
+    gap: 18px;
+    min-height: 190px;
+    padding: 0 20px;
     text-decoration: none;
     transition: opacity 0.2s, transform 0.2s;
+  }
+  .hero-event-promo::before,
+  .hero-event-promo::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #333;
   }
   .hero-event-promo:hover {
     opacity: 0.84;
