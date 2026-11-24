@@ -1,8 +1,26 @@
 (function () {
+  var isTranslatedPage = window.location.hostname.endsWith('.translate.goog');
   var sourceUrl = window.location.href;
-  if (window.location.hostname === 'arobasix.github.io' || window.location.hostname.endsWith('.translate.goog')) {
-    sourceUrl = 'https://arobasix.github.io' + window.location.pathname + window.location.search + window.location.hash;
+  if (window.location.hostname === 'arobasix.github.io' || isTranslatedPage) {
+    var originalQuery = new URLSearchParams(window.location.search);
+    var cleanQuery = new URLSearchParams();
+    originalQuery.forEach(function (value, key) {
+      if (!key.startsWith('_x_tr_')) cleanQuery.append(key, value);
+    });
+    var queryString = cleanQuery.toString();
+    sourceUrl = 'https://arobasix.github.io' + window.location.pathname +
+      (queryString ? '?' + queryString : '') + window.location.hash;
   }
+
+  function restoreDirectLinks() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-direct-href]'), function (link) {
+      link.setAttribute('href', link.getAttribute('data-direct-href'));
+    });
+  }
+
+  restoreDirectLinks();
+  window.setTimeout(restoreDirectLinks, 0);
+  window.setTimeout(restoreDirectLinks, 250);
 
   var style = document.createElement('style');
   style.textContent = '\
@@ -66,6 +84,10 @@
       '<option value="en">English</option>';
     select.addEventListener('change', function () {
       if (!select.value) return;
+      if (select.value === 'fr') {
+        window.location.assign(sourceUrl);
+        return;
+      }
       var translateUrl = new URL('https://translate.google.com/translate');
       translateUrl.searchParams.set('sl', 'auto');
       translateUrl.searchParams.set('tl', select.value);
