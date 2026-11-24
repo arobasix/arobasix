@@ -14,13 +14,33 @@
 
   function restoreDirectLinks() {
     Array.prototype.forEach.call(document.querySelectorAll('[data-direct-href]'), function (link) {
-      link.setAttribute('href', link.getAttribute('data-direct-href'));
+      var directHref = link.getAttribute('data-direct-href');
+      if (!directHref) return;
+      if (link.getAttribute('href') !== directHref) link.setAttribute('href', directHref);
+      if (link.getAttribute('data-direct-link-guard') === 'true') return;
+      link.setAttribute('data-direct-link-guard', 'true');
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (link.target === '_blank') {
+          window.open(directHref, '_blank', 'noopener,noreferrer');
+        } else {
+          window.location.assign(directHref);
+        }
+      }, true);
     });
   }
 
   restoreDirectLinks();
   window.setTimeout(restoreDirectLinks, 0);
   window.setTimeout(restoreDirectLinks, 250);
+  if (window.MutationObserver) {
+    new MutationObserver(restoreDirectLinks).observe(document.documentElement, {
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['href']
+    });
+  }
 
   var style = document.createElement('style');
   style.textContent = '\
